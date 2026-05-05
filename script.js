@@ -9,7 +9,7 @@ function initScrollAnimations() {
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.service-full-card, .optimization-card, .process-step, .faq-item, .case-preview-link, .founder-story, .team-section').forEach(el => {
+    document.querySelectorAll('.service-card, .metric-item, .why-item, .process-step, .testimonial-card, .blog-card').forEach(el => {
         el.classList.add('scroll-animate');
         observer.observe(el);
     });
