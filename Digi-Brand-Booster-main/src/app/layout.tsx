@@ -58,7 +58,7 @@ export default function RootLayout({
               name: 'Digi Brand Booster',
               description: 'AI-native performance marketing agency for D2C, e-commerce, SaaS and B2B brands. 90-day ROI guarantee.',
               url: 'https://digibrandbooster.tech',
-              email: 'Venkat.digitalseo@gamil.com',
+              email: 'venkat.digitalseo@gmail.com',
               telephone: '+917981632581',
               address: {
                 '@type': 'PostalAddress',

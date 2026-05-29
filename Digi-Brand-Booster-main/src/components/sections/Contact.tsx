@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, Clock, ArrowRight, Check } from 'lucide-react'
+import { Mail, Phone, Clock, MapPin, ArrowRight, Check } from 'lucide-react'
 import { serviceOptions, budgetOptions, siteConfig } from '@/lib/data'
 import ShimmerButton from '@/components/ui/ShimmerButton'
 
@@ -75,6 +75,12 @@ export default function Contact() {
                   </span>
                   {siteConfig.phone}
                 </a>
+                <div className="flex items-start gap-3 text-sm text-text-secondary">
+                  <span className="flex items-center justify-center w-9 h-9 rounded-lg bg-accent-primary/10 border border-accent-primary/20 mt-1">
+                    <MapPin size={16} className="text-accent-primary" />
+                  </span>
+                  <p>{siteConfig.address}</p>
+                </div>
               </div>
 
               <div className="p-4 rounded-xl bg-accent-success/5 border border-accent-success/20 flex items-start gap-3">
