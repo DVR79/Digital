@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-card: var(--bg-card);
+  --color-bg-card-hover: var(--bg-card-hover);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-cta: var(--accent-cta);
+  --color-accent-success: var(--accent-success);
+  --color-border: var(--border-color);
+  --font-heading: var(--font-bricolage);
+  --font-body: var(--font-inter);
+}
+
+/* Dark mode (default) — Premium "Midnight Aurora" palette */
+:root {
+  /* Backgrounds with subtle indigo undertone for depth */
+  --bg-dark: #0a0a14;
+  --bg-card: #14141f;
+  --bg-card-hover: #1c1c2b;
+
+  /* Text with subtle warm undertone for premium feel */
+  --text-primary: #f4f4f7;
+  --text-secondary: #a1a1b3;
+
+  /* Vibrant accents tuned for the new background */
+  --accent-primary: #5b8dff;    /* Brighter blue, more vibrant on dark */
+  --accent-secondary: #22d3ee;  /* Cyan, slightly more saturated */
+  --accent-cta: #fbbf24;        /* Warm amber, more luminous */
+  --accent-success: #34d399;    /* Emerald, gentler tone */
+  --accent-purple: #a78bfa;     /* Lavender accent for gradients */
+
+  --border-color: rgba(255, 255, 255, 0.07);
+  --glass-bg: rgba(20, 20, 31, 0.5);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --scrollbar-track: #0a0a14;
+  --scrollbar-thumb: #2a2a3d;
+  --scrollbar-thumb-hover: #3d3d55;
+  --grid-overlay: rgba(255, 255, 255, 0.045);
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Light mode */
+:root.light {
+  --bg-dark: #fafbfc;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-primary: #3b82f6;
+  --accent-secondary: #06b6d4;
+  --accent-cta: #f59e0b;
+  --accent-success: #10b981;
+  --accent-purple: #8b5cf6;
+  --border-color: rgba(15, 23, 42, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(15, 23, 42, 0.06);
+  --scrollbar-track: #f1f5f9;
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+  --grid-overlay: rgba(15, 23, 42, 0.04);
+  --shadow-color: rgba(15, 23, 42, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+}
+
+body {
+  font-family: var(--font-body), system-ui, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: -0.02em;
+  font-feature-settings: 'ss01', 'ss02';
+}
+
+h1 {
+  letter-spacing: -0.035em;
+}
+
+::selection {
+  background-color: rgba(91, 141, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
+
+/* Glass utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(1.6);
+  -webkit-backdrop-filter: blur(24px) saturate(1.6);
+  border: 1px solid var(--glass-border);
+}
+
+/* Gradient text — Midnight Aurora */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-primary) 0%, var(--accent-secondary) 50%, var(--accent-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient border animation */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.gradient-border {
+  position: relative;
+  border-radius: 1rem;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--border-angle), #5b8dff, #22d3ee, #a78bfa, #5b8dff);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1px;
+  animation: rotate-border 4s linear infinite;
+}
+
+@keyframes rotate-border {
+  to { --border-angle: 360deg; }
+}
+
+/* Section divider */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), var(--accent-secondary), transparent);
+  opacity: 0.3;
+}
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Pulse ring for WhatsApp */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-marquee { animation: none; }
+}
