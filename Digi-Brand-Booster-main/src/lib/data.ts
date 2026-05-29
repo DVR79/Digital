@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Digi Brand Booster',
   tagline: 'AI-Native Performance Marketing Agency',
   description: "We help D2C, e-commerce, SaaS and B2B brands grow with AI-native performance marketing. We hit 88% of client growth goals. If we don't deliver in 90 days, you don't pay.",
-  email: 'venkat.digitalseo@gmail.com',
+  email: 'Venkat.digitalseo@gamil.com',
   phone: '+91 79816 32581',
   whatsapp: '917981632581',
   address: 'M1, Ruchi Complex, Next to Jalaram Honda Showroom, Adajan to Hazira Road, Surat 395009, Gujarat, India.',
